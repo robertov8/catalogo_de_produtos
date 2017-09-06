@@ -1,11 +1,17 @@
 // @flow
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
+
+import Itens from './Itens';
 
 export default class ListaItens extends Component {
     render() {
         return (
-            <Text>Teste de importação de componente</Text>
+            <View>
+                <Itens />
+                <Itens />
+                <Itens />
+            </View>
         );
     }
 }
