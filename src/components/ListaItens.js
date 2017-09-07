@@ -7,10 +7,16 @@ import Itens from './Itens';
 
 export default class ListaItens extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = { listaItens: [] };
+    }
+
     componentWillMount() {
         axios.get('http://faus.com.br/recursos/c/dmairr/api/itens.html')
             .then(response => {
-                console.log(response);
+                this.setState({ listaItens: response.data });
             })
             .catch((err) => {
                 console.log('Error ao recuperar os dados');
@@ -18,12 +24,10 @@ export default class ListaItens extends Component {
     }
 
     render() {
-        
+
         return (
             <View>
-                <Itens />
-                <Itens />
-                <Itens />
+                { console.log(this.state.listaItens) }
             </View>
         );
     }
